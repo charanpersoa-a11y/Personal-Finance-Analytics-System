@@ -32,11 +32,6 @@ class UserInput():
             with open(path, "w", encoding="utf-8") as f:
                 json.dump(users,f)
 
-
-            # with open("users.json", "w", encoding="utf-8") as f:
-            #         js.dump(id_password, f, ensure_ascii=False, indent=4)
-
-
             print("Your generated ID is:", user_id)
             print("-----------------------------------")
             print("register process complete you can proceed further .")
@@ -66,7 +61,7 @@ class UserInput():
             
             else:
                 print("user id and password doesn't found please register :..")
-                from main_.main import interface
+                from main import interface
 
                 
                 
