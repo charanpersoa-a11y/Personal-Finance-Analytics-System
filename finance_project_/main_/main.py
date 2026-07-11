@@ -1,8 +1,6 @@
 # project for my resume
 # i will include file handling exception handling oops concepts and many libraries here in this project
-import numpy as np
-import random as rd
-import random as rd
+
 
 
 # first interface that user will se when the open
@@ -16,9 +14,6 @@ class interface():
         print("3.EXIT")
         print("====================================")
         # options=[1,2,3]
-        
-        
-
 i=interface()
 from models.user import UserInput
 
