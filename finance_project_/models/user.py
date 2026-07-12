@@ -1,11 +1,13 @@
 import random as rd
 import json 
-import os
+from pathlib import Path
 class UserInput():
     def __init__(self):
         id_password={}
-        user_input=int(input("enter your choice :"))
-        if user_input==1:
+        
+        # register block
+        def Register():
+            
             print("you opted to register:")
             print("please follow the below instructions:")
             name = input("Enter your name: ")
@@ -25,19 +27,32 @@ class UserInput():
                         "email": gmail,
                         "password": password
 }
+            for users[user_id]["name"] in users:
+                if name in users[user_id]["name"]:
+                    print("name already exists please enter a different version of your name ..")
+                else:
+                    pass
+            users_file=Path("users.json")
+            def load_users():
+                if not users_file.exists():
+                    return []
+                with users_file.open("r", encoding="utf-8") as f:
+                    return json.load(f)
 
-            # else:
-            #     print("USER ALREADY EXIST PLEASE SELECT LOGIN:..")
             path="C:/coding/finance_project_/data/users.json"
-            with open(path, "w", encoding="utf-8") as f:
+            with open(path, "a", encoding="utf-8") as f:
                 json.dump(users,f)
+                print("\n")
+                
+
 
             print("Your generated ID is:", user_id)
             print("-----------------------------------")
             print("register process complete you can proceed further .")
             print("YOUR DATA IS SAVED IN OUR DATABASE :......")
-
-        elif user_input==2:
+            load_users()
+# login block
+        def Login():
             print("you have opted to login :")
             print("enter your id and password :")
             path="C:/coding/finance_project_/data/users.json"
@@ -45,12 +60,11 @@ class UserInput():
                 users=json.load(f)
                 print(users)
 
-            
             id=input("enter your id :-").strip()
             password=input("enter your password :-").strip()
-            # print("Entered password:", repr(password))
-            # print("Stored password :", repr(users[id]["password"]))
-            # print(users[id]["password"] == password)
+            print("Entered password:", repr(password))
+            print("Stored password :", repr(users[id]["password"]))
+            print(users[id]["password"] == password)
 
             if id in users:
                 if users[id]["password"] == password:
@@ -58,24 +72,23 @@ class UserInput():
                 else:
                     print("Invalid Password")
                     print("PLEASE CHECK YOUR PASSWORD AND TRY AGAIN>>.")
-            
+
             else:
                 print("user id and password doesn't found please register :..")
                 from main import interface
 
-                
-                
-                        # have to ensure the data but that things will be done next day
-            # for keys in users:
-            #     if id in keys:
-            #         print("user available ...")
-            #         print("enter your password for login ..")
-            #     else:
-            #         print("login information not found please register ")
-            #         
-            # print("login successful you can proceed ..")
-        elif user_input==3:
+        def Exit():
             print("you have opted exit ")
             print("THANK YOU")
         print(id_password)
+
+        user_input=int(input("enter your choice :"))
+        if user_input==1:
+            Register()
+        elif user_input==2:
+            Login()
+        elif user_input==3:
+            Exit()
+        else:
+            print("invalid input given please check your input again:.")
 U=UserInput()
