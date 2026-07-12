@@ -4,10 +4,10 @@ from pathlib import Path
 class UserInput():
     def __init__(self):
         id_password={}
-        
+
         # register block
         def Register():
-            
+
             print("you opted to register:")
             print("please follow the below instructions:")
             name = input("Enter your name: ")
@@ -27,30 +27,53 @@ class UserInput():
                         "email": gmail,
                         "password": password
 }
-            for users[user_id]["name"] in users:
-                if name in users[user_id]["name"]:
-                    print("name already exists please enter a different version of your name ..")
-                else:
-                    pass
-            users_file=Path("users.json")
-            def load_users():
-                if not users_file.exists():
-                    return []
-                with users_file.open("r", encoding="utf-8") as f:
-                    return json.load(f)
+            # for users[user_id]["name"] in users:
+            #     if name in users[user_id]["name"]:
+            #         print("name already exists please enter a different version of your name ..")
+            #     else:
+            #         pass
+            # users_file=Path("users.json")
+            # def load_users():
+            #     if not users_file.exists():
+            #         return []
+            #     with users_file.open("r", encoding="utf-8") as f:
+            #         return json.load(f)
 
-            path="C:/coding/finance_project_/data/users.json"
-            with open(path, "a", encoding="utf-8") as f:
-                json.dump(users,f)
-                print("\n")
-                
+            # path="C:/coding/finance_project_/data/users.json"
+            # with open(path, "a", encoding="utf-8") as f:
+            #     json.dump(users,f)
+            #     print("\n")
+
+
+            users_path = "users.json"
+
+            def load_users():
+                try:
+                    with open(users_path, "r", encoding="utf-8") as f:
+                        return json.load(f)
+                except (FileNotFoundError, json.JSONDecodeError):
+                    return {}
+
+            def save_users(users):
+                with open(users_path, "w", encoding="utf-8") as f:
+                    json.dump(users, f, indent=4)
+
+            def add_user(user_id, name, age, gmail, password):
+                users = load_users()
+                users[user_id] = {
+                    "name": name,
+                    "age": age,
+                    "email": gmail,
+                    "password": password
+                }
+                save_users(users)
 
 
             print("Your generated ID is:", user_id)
             print("-----------------------------------")
             print("register process complete you can proceed further .")
             print("YOUR DATA IS SAVED IN OUR DATABASE :......")
-            load_users()
+            # load_users()
 # login block
         def Login():
             print("you have opted to login :")
