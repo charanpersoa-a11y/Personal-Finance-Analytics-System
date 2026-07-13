@@ -1,7 +1,6 @@
-# project for my resume
-# i will include file handling exception handling oops concepts and many libraries here in this project
 
 
+from mypkg.services import auth
 
 # first interface that user will se when the open
 class interface():
@@ -14,10 +13,26 @@ class interface():
         print("3.EXIT")
         print("====================================")
         # options=[1,2,3]
+        user_input=int(input("enter your choice :"))
+        if user_input==1:
+            name=input("enter your name..")
+            age=int(input("enter your age .."))
+            email=input("enter your email address...")
+            password=input("enter your new password ...")
+            auth.Register(name=name,age=age,email=email,password=password)
+
+
+
+        elif user_input==2:
+            auth.UserInput.Login()
+        elif user_input==3:
+            auth.UserInput.Exit()
+        else:
+            print("invalid input given please check your input again:.")
+
+
 i=interface()
-from models.user import UserInput
 
 
 
-        
 

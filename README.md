@@ -10,3 +10,6 @@ todays update is that i worked on registration and login where i saved the data 
 13\07\26
 i'm having some issues with organizing files in this project and today i'll solve this problem 
 main thing to be noticed is which file contains what that's the main question here and i did some mistakes too till now and time to correct
+todays tasks are as follows
+1.organize the files according and comment down the things which will be there
+2.update on git and github
