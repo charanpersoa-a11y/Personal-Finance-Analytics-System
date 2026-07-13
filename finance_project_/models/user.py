@@ -70,9 +70,11 @@ class UserInput():
 
 
             print("Your generated ID is:", user_id)
+            print(f"please remember this id for login purposes .. {user_id}")
             print("-----------------------------------")
             print("register process complete you can proceed further .")
             print("YOUR DATA IS SAVED IN OUR DATABASE :......")
+
             # load_users()
 # login block
         def Login():
@@ -98,7 +100,11 @@ class UserInput():
 
             else:
                 print("user id and password doesn't found please register :..")
-                from main import interface
+                print("for register please enter 1 again ...")
+                input_=int(input("enter you choice:..."))
+                if input_==1:
+                    Register()
+
 
         def Exit():
             print("you have opted exit ")
