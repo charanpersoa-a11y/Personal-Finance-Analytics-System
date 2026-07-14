@@ -24,9 +24,9 @@ class interface():
 
 
         elif user_input==2:
-            auth.UserInput.Login()
+            auth.Login()
         elif user_input==3:
-            auth.UserInput.Exit()
+            auth.Exit()
         else:
             print("invalid input given please check your input again:.")
 

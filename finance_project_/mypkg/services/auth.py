@@ -14,9 +14,6 @@ def Register(name,age,email,password):
     users[user_id] = new_user.to_dict()
     save_users(users)
 
-    
-           
-
     print("Your generated ID is:", user_id)
     print(f"please remember this id for login purposes .. {user_id}")
     print("-----------------------------------")
@@ -27,7 +24,7 @@ def Register(name,age,email,password):
 def Login():
     print("you have opted to login :")
     print("enter your id and password :")
-    path="C:/coding/finance_project_/data/users.json"
+    path="C:/coding/finance_project_/mypkg/data/users.json"
     with open(path,"r") as f:
         users=json.load(f)
         print(users)
