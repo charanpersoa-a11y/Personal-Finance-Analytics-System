@@ -13,3 +13,14 @@ main thing to be noticed is which file contains what that's the main question he
 todays tasks are as follows
 1.organize the files according and comment down the things which will be there
 2.update on git and github
+till now a lot of changes happened in the code base and it took  a lot of time for this
+major changes happened
+auth register and login and exit these functions moved to auth and it handles the registration process 
+file_manages handles the loading saving information
+user represents a user and create a new user whenever function is called
+main handles the input operations
+authentication almost done with some minor changes remaining like i want connect things to other files so work is still incomplete
+problem is how i connect them like i want to show the dashboard of the user who logged in and for that i want confirmation from the
+login or from the authentication
+the first solution i found is to write a series of code or block of code in dash file where i can easily access the confirmation from the login but the i can't because the login block should be in auth and it will be there
+so other classic method is get the user id of the person logged in from the login func and then search the user in the data base finally show the dashboard of the user if he want to
