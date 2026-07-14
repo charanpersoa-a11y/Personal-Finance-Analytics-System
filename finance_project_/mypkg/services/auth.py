@@ -19,6 +19,11 @@ def Register(name,age,email,password):
     print("-----------------------------------")
     print("register process complete you can proceed further .")
     print("YOUR DATA IS SAVED IN OUR DATABASE :......")
+    print("you can log in with your used id and password ....")
+    import main as m
+    print("press 2 to login with your id .")
+    m.interface()
+
             # load_users()
 # login block
 def Login():
@@ -34,20 +39,26 @@ def Login():
     print("Entered password:", repr(password))
     print("Stored password :", repr(users[id]["password"]))
     print(users[id]["password"] == password)
+    def user_login(id,password):
 
-    if id in users:
-        if users[id]["password"] == password:
-            print("Login Successful")
+        if id in users:
+            if users[id]["password"] == password:
+                return id
+           
+            # dashboard of the logged in user.
+
+            else:
+                print("Invalid Password")
+                print("PLEASE CHECK YOUR PASSWORD AND TRY AGAIN>>.")
+
         else:
-            print("Invalid Password")
-            print("PLEASE CHECK YOUR PASSWORD AND TRY AGAIN>>.")
+            print("user id and password doesn't found please register :..")
+            print("for register please enter 1 again ...")
+            input_=int(input("enter you choice:..."))
+            if input_==1:
+                Register()
 
-    else:
-        print("user id and password doesn't found please register :..")
-        print("for register please enter 1 again ...")
-        input_=int(input("enter you choice:..."))
-        if input_==1:
-            Register()
+
 
 
 def Exit():
