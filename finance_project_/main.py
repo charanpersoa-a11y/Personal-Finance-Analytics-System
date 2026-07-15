@@ -1,6 +1,7 @@
 
 
-from mypkg.services import auth
+import mypkg.services.auth as a
+import mypkg.services.file_manager as f
 
 # first interface that user will se when the open
 class interface():
@@ -19,14 +20,15 @@ class interface():
             age=int(input("enter your age .."))
             email=input("enter your email address...")
             password=input("enter your new password ...")
-            auth.Auth.Register(name=name,age=age,email=email,password=password)
+            a.Auth.Register(name=name,age=age,email=email,password=password)
 
 
 
         elif user_input==2:
-            auth.Login()
+            users=f.load_users()
+            a.Auth.Login()
         elif user_input==3:
-            auth.Exit()
+            a.Auth.Exit()
         else:
             print("invalid input given please check your input again:.")
 

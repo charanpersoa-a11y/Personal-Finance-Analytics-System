@@ -2,7 +2,7 @@ import random as rd
 import json 
 from pathlib import Path
 import mypkg.models as m
-from mypkg.services.file_manager import load_users, save_users
+from mypkg.services.file_manager import load_users, save_users                  
             
 class Auth():
         # register block
@@ -12,6 +12,10 @@ class Auth():
         new_user = m.User( name, age, email,password=password)
         users = load_users()
         users[user_id] = new_user.to_dict()
+        if users[user_id][email] in users:
+            print("user already exists and your can login now ")
+            from main import interface
+            interface()
         save_users(users)
 
         print("Your generated ID is:", user_id)
@@ -20,9 +24,7 @@ class Auth():
         print("register process complete you can proceed further .")
         print("YOUR DATA IS SAVED IN OUR DATABASE :......")
         print("you can log in with your used id and password ....")
-        import main as m
-        print("press 2 to login with your id .")
-        m.interface()
+        
 
                 # load_users()
     # login block
