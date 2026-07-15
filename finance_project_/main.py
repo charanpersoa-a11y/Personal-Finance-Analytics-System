@@ -19,7 +19,7 @@ class interface():
             age=int(input("enter your age .."))
             email=input("enter your email address...")
             password=input("enter your new password ...")
-            auth.Register(name=name,age=age,email=email,password=password)
+            auth.Auth.Register(name=name,age=age,email=email,password=password)
 
 
 
