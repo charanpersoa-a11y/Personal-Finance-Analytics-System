@@ -7,23 +7,33 @@
 # 1.the users info like their name email address and all the other transactions in the future
 
 import auth as a
-import mypkg.models.user as u
-import mypkg.services.file_manager as f
+import file_manager as f
+import models.user as u
 class Dash():
     def __init__(self,user):
         pass
 
     def board():
-        id=5740136289
-        print(f"welcome th your dashboard ..")
-        print(f"name = ")
-        print(f"email address =")
+        # your dashboard will be here
+        # how i want that dashboard is
+        # i want it to display the user info at the top and
         users=f.load_users()
-        data=users[id]
-        user_obj=u.User(id)
-        print(user_obj)
+        id=a.Auth.Login()
+        user_info=u.User.from_dict(id)
+        print(users)
+        print(id)
 
+        print(f"name : ")
+        print(f"age:")
+        print(f"email:")
+        print("press something to show your password thing ")
+        print("currently your details not available we will update your info later ..")
+        # return None
+
+
+        
 
 
 D=Dash()
 D.board()
+

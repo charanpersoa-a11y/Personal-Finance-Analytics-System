@@ -28,7 +28,9 @@ class interface():
 
         elif user_input==2:
             users=f.load_users()
+            print("your registration complete you can login with your id and password ..")
             a.Auth.Login()
+            print("login successful you can proceed further .") 
         elif user_input==3:
             a.Auth.Exit()
         else:

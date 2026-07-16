@@ -1,9 +1,9 @@
 import random as rd
-import json 
+import json
 from pathlib import Path
-import mypkg.models.user as u
-from mypkg.services.file_manager import load_users, save_users
-            
+import models.user as u
+from services.file_manager import load_users, save_users
+
 class Auth():
         # register block
     def Register(name,age,email,password):
@@ -56,9 +56,6 @@ class Auth():
             input_=int(input("enter you choice:..."))
             if input_==1:
                 Auth.Register()
-
-
-
 
     def Exit():
         print("you have opted exit ")
