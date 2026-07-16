@@ -1,8 +1,8 @@
 import random as rd
 import json
 from pathlib import Path
-import models.user as u
-from file_manager import load_users , save_users
+import mypkg.models.user as u
+from mypkg.services.file_manager import load_users , save_users
 
 class Auth():
         # register block

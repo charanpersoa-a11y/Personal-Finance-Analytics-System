@@ -2,6 +2,7 @@
 
 import mypkg.services.auth as a
 import mypkg.services.file_manager as f
+import mypkg.services.dashboard as d
 
 # first interface that user will se when the open
 class interface():
@@ -30,7 +31,13 @@ class interface():
             users=f.load_users()
             print("your registration complete you can login with your id and password ..")
             a.Auth.Login()
-            print("login successful you can proceed further .") 
+            print("login successful you can proceed further .")
+            print("if you want to see your dashboard please enter 1")
+            enter=int(input("enter your choice number .."))
+            if enter ==1:
+                d.Dash.board()
+
+
         elif user_input==3:
             a.Auth.Exit()
         else:

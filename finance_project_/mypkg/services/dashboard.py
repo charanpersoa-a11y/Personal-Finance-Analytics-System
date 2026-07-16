@@ -6,9 +6,9 @@
 # what this dashboard contains
 # 1.the users info like their name email address and all the other transactions in the future
 
-import auth as a
-import file_manager as f
-import models.user as u
+import mypkg.services.auth as a
+import mypkg.services.file_manager as f
+import mypkg.models.user as u
 class Dash():
     def __init__(self,user):
         pass
@@ -32,6 +32,5 @@ class Dash():
 
 
 
-D=Dash()
-D.board()
+
 
