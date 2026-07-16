@@ -1,8 +1,8 @@
 import random as rd
 import json
 from pathlib import Path
-import models.user as u
-from services.file_manager import load_users, save_users
+import mypkg.models.user as u
+from mypkg.services.file_manager import load_users, save_users
 
 class Auth():
         # register block
@@ -21,8 +21,7 @@ class Auth():
         print("YOUR DATA IS SAVED IN OUR DATABASE :......")
         print("you can log in with your used id and password ....")
         print("-----------------------------------")
-        
-        
+
 
                 # load_users()
     # login block
