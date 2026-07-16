@@ -26,3 +26,6 @@ the first solution i found is to write a series of code or block of code in dash
 so other classic method is get the user id of the person logged in from the login func and then search the user in the data base finally show the dashboard of the user if he want to
 till now the register and login things are working accordingly and has no errors and i am gonna implement try error blocks there for 
 and new case scenarios like i want to add exception handling here..
+as of today i didn't get time to code
+i have done some minor changes in the system like when a new user register for the first time after the completion of the registration
+process he or she will be directed to login page without any inputs or anything .
