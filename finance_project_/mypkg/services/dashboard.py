@@ -10,16 +10,14 @@ import mypkg.services.auth as a
 import mypkg.services.file_manager as f
 import mypkg.models.user as u
 class Dash():
-    def __init__(self,user):
-        pass
 
     def board():
-        # your dashboard will be here
-        # how i want that dashboard is
-        # i want it to display the user info at the top and
+        # login_user=a.Auth.Login()
+        if a.Auth.Login:
+           user_id=a.Auth.Login(id=id)
         users=f.load_users()
-        id=a.Auth.Login()
-        user_info=u.User.from_dict(id)
+
+        user_info=u.User.from_dict(user_id)
         print(users)
         print(id)
 

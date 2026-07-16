@@ -25,7 +25,7 @@ class Auth():
 
                 # load_users()
     # login block
-    def Login():
+    def Login(id):
         print("you have opted to login :")
         print("enter your id and password :")
         path="C:/coding/finance_project_/mypkg/data/users.json"
