@@ -1,29 +1,27 @@
 import random as rd
 import json 
 from pathlib import Path
-import mypkg.models as m
-from mypkg.services.file_manager import load_users, save_users                  
+import mypkg.models.user as u
+from mypkg.services.file_manager import load_users, save_users
             
 class Auth():
         # register block
     def Register(name,age,email,password):
         digits = rd.sample(range(10), 10)
         user_id = "".join(map(str, digits))
-        new_user = m.User( name, age, email,password=password)
+        new_user = u.User( name, age, email,password=password)
         users = load_users()
         users[user_id] = new_user.to_dict()
-        if users[user_id][email] in users:
-            print("user already exists and your can login now ")
-            from main import interface
-            interface()
         save_users(users)
 
         print("Your generated ID is:", user_id)
         print(f"please remember this id for login purposes .. {user_id}")
-        print("-----------------------------------")
+        print(f"your password is {password} note down this for login processes ..")
         print("register process complete you can proceed further .")
         print("YOUR DATA IS SAVED IN OUR DATABASE :......")
         print("you can log in with your used id and password ....")
+        print("-----------------------------------")
+        
         
 
                 # load_users()

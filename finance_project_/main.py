@@ -21,6 +21,8 @@ class interface():
             email=input("enter your email address...")
             password=input("enter your new password ...")
             a.Auth.Register(name=name,age=age,email=email,password=password)
+            if a.Auth.Register:
+                a.Auth.Login()
 
 
 

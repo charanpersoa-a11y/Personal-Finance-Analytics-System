@@ -28,5 +28,17 @@
         "age": 17,
         "email": "dhanu@gmail.com",
         "password": "dhanus"
+    },
+    "6341982075": {
+        "name": "kiran",
+        "age": 21,
+        "email": "kiran420@gmail.com",
+        "password": "kira420"
+    },
+    "9067521348": {
+        "name": "shashi",
+        "age": 21,
+        "email": "shashi@gmail.com",
+        "password": "shashi"
     }
 }
