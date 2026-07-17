@@ -24,6 +24,9 @@ class Transaction():
             "type":self.t_type,
             "date":self.date
         }
+    # @classmethod
+    # def from_trans(user_id,data):
+
 
 
 
