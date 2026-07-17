@@ -3,6 +3,7 @@ import json
 from pathlib import Path
 import mypkg.models.user as u
 from mypkg.services.file_manager import load_users , save_users
+import mypkg.services.sessions as s
 
 class Auth():
         # register block
@@ -25,29 +26,16 @@ class Auth():
 
                 # load_users()
     # login block
-    def Login(id):
-        print("you have opted to login :")
-        print("enter your id and password :")
-        path="C:/coding/finance_project_/mypkg/data/users.json"
-        with open(path,"r") as f:
-            users=json.load(f)
-            print(users)
+    def Login(user_id,user_password):
+        users=load_users()
 
-        id=input("enter your id :-").strip()
-        password=input("enter your password :-").strip()
-        print("Entered password:", repr(password))
-        print("Stored password :", repr(users[id]["password"]))
-        print(users[id]["password"] == password)
+        # print("Entered password:", repr(password))
+        # print("Stored password :", repr(users[user_id]["password"]))
+        # print(users[user_id]["password"] == password)
 
-        if id in users:
-            if users[id]["password"] == password:
-                return id
-
-                # dashboard of the logged in user.
-
-            else:
-                print("Invalid Password")
-                print("PLEASE CHECK YOUR PASSWORD AND TRY AGAIN>>.")
+        if user_id in users and users[user_id]["password"] == user_password:
+            s.set_current_user(user_id=user_id)
+            return user_id
 
         else:
             print("user id and password doesn't found please register :..")
@@ -56,8 +44,10 @@ class Auth():
             if input_==1:
                 Auth.Register()
 
+
     def Exit():
         print("you have opted exit ")
         print("THANK YOU")
+        s.clear_current_user()
 
 # U=UserInput()
