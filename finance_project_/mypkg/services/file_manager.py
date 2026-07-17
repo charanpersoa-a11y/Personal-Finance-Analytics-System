@@ -23,3 +23,24 @@ def add_user(user_id, name, age, gmail, password):
                 }
     save_users(users)
     # add_user(user_id, name, age, gmail, password)
+
+def load_transaction():
+    user_path=Path(r"C:/coding/finance_project_/mypkg/data/transactions.json")
+    try:
+        with open(user_path,"r",encoding="utf-8") as f:
+            return json.load(f)
+    except (FileNotFoundError, json.JSONDecodeError):
+        return {}
+
+def save_transaction(transact):
+    user_path=Path(r"C:/coding/finance_project_/mypkg/data/transactions.json")
+    with open(user_path,"w",encoding="utf-8") as f:
+        json.dump(transact,f,indent=4)
+
+def add_transaction(user_id,amount,type,transaction_id):
+    transaction=load_transaction()
+    transaction[user_id]={"transaction_id":transaction_id,
+                          "amount":amount,
+                          "type":type
+                          }
+    save_transaction(transaction)

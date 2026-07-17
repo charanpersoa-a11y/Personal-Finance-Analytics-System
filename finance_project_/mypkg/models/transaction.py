@@ -7,8 +7,26 @@
 # ├── date
 # ├── description
 # this is the structure of the transaction\
-import time
+import mypkg.services.sessions as S
+import mypkg.services.file_manager as f
+import time as t
+class Transaction():
+    def __init__(self,amount,t_type,date,transaction_id):
+        self.amount=amount
+        self.t_type=t_type
+        self.date=date
+        self.transaction_id=transaction_id
 
-print(time.ctime())
-time.sleep(2)
-print(time.strftime("%Y-%m-%d %H:%M:%S"))
+    def to_trans(self):
+        return {
+            "transaction_id":self.transaction_id,
+            "amount":self.amount,
+            "type":self.t_type,
+            "date":self.date
+        }
+
+
+
+
+
+

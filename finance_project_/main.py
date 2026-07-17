@@ -1,9 +1,9 @@
 
-
 from  mypkg.services.auth import Auth
 import mypkg.services.file_manager as f
 import mypkg.services.dashboard as d
-
+import mypkg.models.transactions as T
+import time
 # first interface that user will se when the open
 class interface():
     def __init__(self):
@@ -39,6 +39,17 @@ class interface():
             Auth.Login(user_id=user_id,user_password=password)
             print("login successful you can proceed further .")
             d.Dash.board()
+            print("1. To add a new transaction")
+            print("2. Get transaction ")
+            choice=int(input("enter your choice :-"))
+            if choice==1:
+                amount=int(input("enter your amount:-"))
+                category=input("enter the category of the transaction :-")
+                date=time.strftime("%Y-%m-%d %H:%M:%S")
+                type_=input("enter the type of transaction")
+                T.add_transactions(amount=amount,category=category,date=date,type_=type_)
+                T.get_transaction_for_user()
+
 
 
 
@@ -49,7 +60,3 @@ class interface():
 
 
 i=interface()
-
-
-
-
