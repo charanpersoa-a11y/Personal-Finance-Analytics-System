@@ -49,6 +49,11 @@ class interface():
             choice=int(input("enter your choice :-"))
             if choice==1:
                 amount=int(input("enter your amount:-"))
+                cat=["income ","expense"]
+                for i , a in cat:
+                    print(f"the options you have here is :-")
+                    print(i,"    ",  a)
+                print("choose your category from the above options .")
                 category=input("enter the category of the transaction :-")
                 date=time.strftime("%Y-%m-%d %H:%M:%S")
                 type_=input("enter the type of transaction")

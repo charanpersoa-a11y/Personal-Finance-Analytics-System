@@ -2,53 +2,53 @@
     "3564071289": {
         "40312": {
             "amount": 500,
-            "category": "debit",
+            "category": "expense",
             "date": "2026-07-17 14:31:22",
-            "type": "nothing"
+            "type": "food"
         },
         "30124": {
             "amount": 5000,
-            "category": "debit",
+            "category": "income",
             "date": "2026-07-17 14:32:11",
-            "type": "nothing"
+            "type": "freelance"
         }
     },
     "0498536217": {
         "24013": {
             "amount": 999,
-            "category": "credit",
+            "category": "expense",
             "date": "2026-07-17 14:33:22",
-            "type": "no"
+            "type": "gadget"
         },
         "13240": {
             "amount": 898,
-            "category": "np",
+            "category": "expense",
             "date": "2026-07-17 14:35:56",
-            "type": "mp"
+            "type": "food"
         }
     },
     "9256418730": {
         "21043": {
             "amount": 4050,
-            "category": "salary",
+            "category": "income",
             "date": "2026-07-17 17:21:40",
-            "type": "credited"
+            "type": "freelance"
         }
     },
     "3164270895": {
         "10342": {
             "amount": 1000,
-            "category": "freelance",
+            "category": "income",
             "date": "2026-07-17 19:06:50",
-            "type": "credit"
+            "type": "freelance"
         }
     },
     "7283459061": {
         "12043": {
             "amount": 8578,
-            "category": "salary",
+            "category": "income",
             "date": "2026-07-18 14:07:36",
-            "type": "credit "
+            "type": "salary "
         }
     }
 }

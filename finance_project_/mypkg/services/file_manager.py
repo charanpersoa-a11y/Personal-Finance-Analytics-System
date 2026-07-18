@@ -1,5 +1,6 @@
 import json
 from pathlib import Path
+import mypkg.services.sessions as S
 def load_users():
         users_path = Path("C:/coding/finance_project_/mypkg/data/users.json")
         try:
@@ -44,3 +45,26 @@ def add_transaction(user_id,amount,type,transaction_id):
                           "type":type
                           }
     save_transaction(transaction)
+
+def LoadBudget():
+    bud=Path("C:/coding/finance_project_/mypkg/data/budgets.json")
+    try:
+        with open(bud,"r", encoding="utf-8") as B:
+            return json.load(B)
+    except (FileNotFoundError, json.JSONDecodeError):
+        return {}
+def SaveBudget(data):
+    bud=Path("C:/coding/finance_project_/mypkg/data/budgets.json")
+    with open(bud,"w", encoding="utf-8") as A:
+        json.dump(data,A,indent=4)
+
+
+def AddBudget(category,budget,period):
+    current_user=S.get_current_user()
+    bud=LoadBudget()
+    bud[current_user]={
+        "category":category,
+        "budget":budget,
+        "period":period
+    }
+    SaveBudget(bud)
