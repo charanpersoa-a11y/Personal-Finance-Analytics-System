@@ -4,6 +4,7 @@ import mypkg.services.auth as a
 import mypkg.services.file_manager as f
 import mypkg.models.user as u
 import mypkg.models.transactions as T
+import time
 class Dash():
 
     def board():
@@ -22,9 +23,13 @@ class Dash():
         print(f"age:{users[users_id]["age"]}")
         print(f"email:{users[users_id]["email"]}")
 
-
-        print("your transaction history is ")
-        
+        history=f.load_transaction()
+        if users_id in history:
+            data=history[users_id]
+            print("your transaction history is ")
+            print(data)
+        else:
+            print("new user doesn't have any transactions .")
 
 
         print("more updated coming soon ......")

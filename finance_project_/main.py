@@ -4,6 +4,8 @@ import mypkg.services.file_manager as f
 import mypkg.services.dashboard as d
 import mypkg.models.transactions as T
 import time
+import mypkg.utlis.helper as H
+
 # first interface that user will se when the open
 class interface():
     def __init__(self):
@@ -30,18 +32,20 @@ class interface():
 
 
         elif user_input==2:
-            users=f.load_users()
-            # print("your registration complete you can login with your id and password ..")
-            print("you have opted to login :")
-            print("enter your id and password :")
+            print("LOGIN")
             user_id=input("enter your id :-").strip()
             password=input("enter your password :-").strip()
             Auth.Login(user_id=user_id,user_password=password)
-            print("login successful you can proceed further .")
+            H.print_statements.login_main()
+# helper file import here
+
+            time.sleep(3)
             d.Dash.board()
-            print("1. To add a new transaction")
-            print("2. Get transaction ")
-            print("3. to delete a specific transaction..")
+            time.sleep(3)
+            H.print_statements.options()
+# import here
+
+            time.sleep(2)
             choice=int(input("enter your choice :-"))
             if choice==1:
                 amount=int(input("enter your amount:-"))
