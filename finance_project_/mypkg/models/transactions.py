@@ -32,21 +32,38 @@ def get_transaction_for_user():
     print(trans)
 
 def delete_transaction(transaction_id):
-    # trans=F.load_transaction()
+    # trans = F.load_transaction()
+    current_user = S.get_current_user()
+
+    data = P.Path("C:/coding/finance_project_/mypkg/data/transactions.json")
+
+    users=F.load_transaction()
+
+    print(users[current_user])
+
+    if current_user in users and transaction_id in users[current_user]:
+        del users[current_user][transaction_id]
+
+    with open(data, "w", encoding="utf-8") as u:
+        json.dump(users, u, indent=4)
+
+
+def edit_transaction(transaction_id):
+    print("NOTE: TRANSACTION ID CANNOT BE EDITED OR CHANGED .")
+    print("the things you can edit now are amount category and type of transaction ")
+    print("your transaction data is")
     current_user=S.get_current_user()
-    # if transaction_id in trans[current_user]:
-    #   del trans[current_user][transaction_id]
     data=P.Path("C:/coding/finance_project_/mypkg/data/transactions.json")
     with open(data,"r", encoding="utf-8") as f:
         users=json.load(f)
     print(users[current_user])
-    
-    if current_user in users and current_user[transaction_id] in users:
-        del users[current_user][transaction_id]
-    
-    with open(data ,"w" ,encoding="utf-8") as u:
-        json.dump(users,u,indent=4)
 
+    print("=================================")
+    print("things you can change.")
+    change=["amount" , "category","type_"]
+    for i , a in enumerate(change):
+        print(i,"     ", a)
+    print("choose which one to change")
 
 
 

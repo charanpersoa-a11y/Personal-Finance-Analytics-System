@@ -3,6 +3,7 @@ import mypkg.services.sessions as s
 import mypkg.services.auth as a
 import mypkg.services.file_manager as f
 import mypkg.models.user as u
+import mypkg.models.transactions as T
 class Dash():
 
     def board():
@@ -20,12 +21,11 @@ class Dash():
         print(f"name : {users[users_id]["name"]}")
         print(f"age:{users[users_id]["age"]}")
         print(f"email:{users[users_id]["email"]}")
-        print("if you want to see your password press 1 in your keyboard .")
-        i=int(input("enter your choice :"))
-        if i ==1:
-            print(f" your password is {users[users_id]["password"]}")
-        else:
-            pass
+
+
+        print("your transaction history is ")
+        
+
 
         print("more updated coming soon ......")
         print("==========================================")
