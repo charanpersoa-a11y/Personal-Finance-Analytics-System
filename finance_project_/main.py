@@ -3,8 +3,9 @@ from  mypkg.services.auth import Auth
 import mypkg.services.file_manager as f
 import mypkg.services.dashboard as d
 import mypkg.models.transactions as T
-import time
 import mypkg.utlis.helper as H
+import mypkg.utlis.validation as V
+import time
 
 # first interface that user will se when the open
 class interface():
@@ -22,9 +23,11 @@ class interface():
         user_input=int(input("enter your choice :"))
         if user_input==1:
             name=input("enter your name..")
-            age=int(input("enter your age .."))
+            # age=int(input("enter your age .."))
             email=input("enter your email address...")
-            password=input("enter your new password ...")
+            # password=input("enter your new password ...")
+            age=V.ValidateAge()
+            password=V.ValidatePassword()
             Auth.Register(name=name,age=age,email=email,password=password)
             print("registration complete you can login for more ")
             interface()
@@ -39,13 +42,13 @@ class interface():
             H.print_statements.login_main()
 # helper file import here
 
-            time.sleep(3)
+            # time.sleep(3)
             d.Dash.board()
-            time.sleep(3)
+            # time.sleep(3)
             H.print_statements.options()
 # import here
 
-            time.sleep(2)
+            # time.sleep(2)
             choice=int(input("enter your choice :-"))
             if choice==1:
                 amount=int(input("enter your amount:-"))

@@ -19,7 +19,7 @@ def ValidateBudget():
        print("enter a valid number ")
 
 
-def ValidatePasswordAge():
+def ValidateAge():
     while True:
         try:
             age = int(input("Enter your age: "))
@@ -29,7 +29,10 @@ def ValidatePasswordAge():
             break
         except ValueError:
             print("Enter a valid number")
+    return age
 
+   
+def ValidatePassword():
     while True:
         password = input("Set a strong password: ")
         if len(password) <= 6:
@@ -37,4 +40,4 @@ def ValidatePasswordAge():
             continue
         break
 
-    return age, password
+    return  password
