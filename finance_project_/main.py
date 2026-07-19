@@ -54,6 +54,7 @@ class interface():
                     print(f"the options you have here is :-")
                     print(i,"    ",  a)
                 print("choose your category from the above options .")
+                print("anything other than income or expense won't be accepted ")
                 category=input("enter the category of the transaction :-")
                 date=time.strftime("%Y-%m-%d %H:%M:%S")
                 type_=input("enter the type of transaction")
@@ -69,6 +70,7 @@ class interface():
                 T.delete_transaction(transaction_id=transaction_id)
                 print('your transaction id is successfully deleted ')
                 print("==========================================")
+
 
 
 
