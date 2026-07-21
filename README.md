@@ -29,3 +29,4 @@ and new case scenarios like i want to add exception handling here..
 as of today i didn't get time to code
 i have done some minor changes in the system like when a new user register for the first time after the completion of the registration
 process he or she will be directed to login page without any inputs or anything .
+here after the completion of transaction but it's not complete without budget thing and other but the basic structure of the transaction is  complete.
