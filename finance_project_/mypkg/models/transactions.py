@@ -4,7 +4,7 @@ import random as rd
 import mypkg.services.file_manager as F
 import mypkg.models.transaction as T
 import pathlib as P
-import json 
+import json
 
 
 
@@ -27,7 +27,16 @@ def add_transactions(amount,category,date,type_):
 def get_transaction_for_user():
     current_user=S.get_current_user()
     data=F.load_transaction()
-    trans=data[current_user]
+    try:
+
+        trans=data[current_user]
+        if trans in data:
+            return trans
+        else:
+            print("currently you don't have any registrations yet")
+    except Exception as e:
+        print(f"error occurs as {e}")
+
     print(f"the transactions of the user is ")
     print(trans)
 

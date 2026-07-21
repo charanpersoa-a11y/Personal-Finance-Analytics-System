@@ -30,3 +30,7 @@ as of today i didn't get time to code
 i have done some minor changes in the system like when a new user register for the first time after the completion of the registration
 process he or she will be directed to login page without any inputs or anything .
 here after the completion of transaction but it's not complete without budget thing and other but the basic structure of the transaction is  complete.
+new addition is validation it basically checks the user input with certain conditions like it should be a non zero number and the user must be older than a certain age .
+and other thing is password which is the length of the password must be greater than 6 characters .
+and the limit of the budget is also in the validation it basically checks the limit should be greater than 0
+and i am thinking of changing of main cause it looks overloaded and i want it to be clean and clear 

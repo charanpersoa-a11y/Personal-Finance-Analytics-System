@@ -5,6 +5,7 @@ import mypkg.services.dashboard as d
 import mypkg.models.transactions as T
 import mypkg.utlis.helper as H
 import mypkg.utlis.validation as V
+import mypkg.models.budget as B
 import time
 
 # first interface that user will se when the open
@@ -73,6 +74,19 @@ class interface():
                 T.delete_transaction(transaction_id=transaction_id)
                 print('your transaction id is successfully deleted ')
                 print("==========================================")
+            print("==========================================")
+            print("the next section is budget ")
+            print("create a new budget here")
+            cat=input("enter your category of the budget for example ")
+            dummy=["FOOD" , "GROCERIES","RENT" ,"RANDOM_EXPENSE","TRIP","TRAVEL","PARTY"]
+            for i , x in enumerate(dummy):
+                print(i,"    ", x)
+            amo=int(input("enter the amount for this category"))
+            # l=int(input("enter the limit for this category"))
+            limit=V.ValidateLimit()
+            new_bud=B.Budgets.SetBudget(category=cat,amount=amo,limit=limit)
+
+
 
 
 

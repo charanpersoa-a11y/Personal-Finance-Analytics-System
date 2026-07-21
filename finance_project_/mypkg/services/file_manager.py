@@ -1,6 +1,9 @@
 import json
 from pathlib import Path
 import mypkg.services.sessions as S
+
+
+# user part here 
 def load_users():
         users_path = Path("C:/coding/finance_project_/mypkg/data/users.json")
         try:
@@ -25,6 +28,7 @@ def add_user(user_id, name, age, gmail, password):
     save_users(users)
     # add_user(user_id, name, age, gmail, password)
 
+# transaction part here 
 def load_transaction():
     user_path=Path(r"C:/coding/finance_project_/mypkg/data/transactions.json")
     try:
@@ -46,6 +50,9 @@ def add_transaction(user_id,amount,type,transaction_id):
                           }
     save_transaction(transaction)
 
+
+
+# budget part here
 def LoadBudget():
     bud=Path("C:/coding/finance_project_/mypkg/data/budgets.json")
     try:
@@ -59,12 +66,11 @@ def SaveBudget(data):
         json.dump(data,A,indent=4)
 
 
-def AddBudget(category,budget,period):
+def AddBudget(category,budget,limit):
     current_user=S.get_current_user()
     bud=LoadBudget()
-    bud[current_user]={
-        "category":category,
+    bud[current_user][category]={
+        "limit":limit,
         "budget":budget,
-        "period":period
     }
     SaveBudget(bud)
