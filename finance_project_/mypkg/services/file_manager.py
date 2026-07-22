@@ -66,11 +66,13 @@ def SaveBudget(data):
         json.dump(data,A,indent=4)
 
 
-def AddBudget(category,budget,limit):
-    current_user=S.get_current_user()
-    bud=LoadBudget()
-    bud[current_user][category]={
-        "limit":limit,
-        "budget":budget,
+def AddBudget( category, budget, limit):
+    current_user = S.get_current_user()
+    bud = LoadBudget()
+    if current_user not in bud:
+        bud[current_user] = {}
+    bud[current_user][category] = {
+        "limit": limit,
+        "budget": budget,
     }
     SaveBudget(bud)

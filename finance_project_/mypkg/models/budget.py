@@ -3,11 +3,8 @@ import mypkg.services.file_manager as F
 import mypkg.services.sessions as S
 import mypkg.utlis.validation as V
 class Budgets:
-    def SetBudget(self,category,amount,limit):
-        self.category=category
-        self.amount=amount
-        self.limit=limit
-        NewBudget=F.AddBudget(category=category,amount=amount,limit=limit)
+    def SetBudget(category,amount,limit):
+        NewBudget=F.AddBudget(category=category,budget=amount,limit=limit)
         # print(f" your budget saved in our data and here it is {NewBudget}")
 
     def GetBudget(category):
@@ -54,7 +51,7 @@ class Budgets:
         print("your budget is created ")
         print("="*25)
 
-    def Menu():
+    def Menu(self):
         while True:
             print("1.SET BUDGET")
             print("2.VIEW ALL BUDGET ")
