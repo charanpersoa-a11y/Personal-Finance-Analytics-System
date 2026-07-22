@@ -1,14 +1,14 @@
 # this is the place where all the budget things happen
 import mypkg.services.file_manager as F
 import mypkg.services.sessions as S
-
+import mypkg.utlis.validation as V
 class Budgets:
     def SetBudget(self,category,amount,limit):
         self.category=category
         self.amount=amount
         self.limit=limit
         NewBudget=F.AddBudget(category=category,amount=amount,limit=limit)
-        print(f" your budget saved in our data and here it is {NewBudget}")
+        # print(f" your budget saved in our data and here it is {NewBudget}")
 
     def GetBudget(category):
         current_user=S.get_current_user()
@@ -43,6 +43,35 @@ class Budgets:
             print(f"your budget history is {dashboard}")
         else:
             print("currently you don't have and budget created yet ")
+    def ShowSummary():
+        pass
+    def SetBudget_Flow():
+        category=input("enter your category:-")
+        amount=V.ValidateAmount()
+        limit=V.ValidateLimit()
+        print("your budget is being processed ")
+        Budgets.SetBudget(category=category,amount=amount,limit=limit)
+        print("your budget is created ")
+        print("="*25)
+
+    def Menu():
+        while True:
+            print("1.SET BUDGET")
+            print("2.VIEW ALL BUDGET ")
+            print("3.EXIT")
+
+            choice=int(input("enter your choice :-"))
+            if choice==1:
+                Budgets.SetBudget_Flow()
+            elif choice==2:
+                Budgets.GetAll_Budgets()
+            elif choice==3:
+                break
+            else:
+                print("invalid input.")
+        
+
+
 
 
 

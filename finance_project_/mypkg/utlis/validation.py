@@ -10,7 +10,6 @@ def ValidateLimit():
        return "please enter a valid number"
     return limit
 
-    
 
 
 def ValidateAge():
@@ -35,3 +34,16 @@ def ValidatePassword():
         break
 
     return  password
+
+def ValidateAmount():
+    while True:
+        try :
+            amount=int(input("enter your amount:-"))
+            if amount<0:
+                print("amount should be positive .")
+                continue
+            break
+        except Exception as e:
+            print(f"an error showed as e")
+
+    return amount
