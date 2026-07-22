@@ -11,6 +11,12 @@
             "category": "income",
             "date": "2026-07-17 14:32:11",
             "type": "freelance"
+        },
+        "32041": {
+            "amount": 5000,
+            "category": "FOOD",
+            "date": "2026-07-22",
+            "type": "expense"
         }
     },
     "0498536217": {

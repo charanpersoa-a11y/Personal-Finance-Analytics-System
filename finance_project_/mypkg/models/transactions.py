@@ -5,7 +5,7 @@ import mypkg.services.file_manager as F
 import mypkg.models.transaction as T
 import pathlib as P
 import json
-
+import time
 
 
 def add_transactions(amount,category,date,type_):
@@ -41,6 +41,7 @@ def get_transaction_for_user():
     print(trans)
 
 def delete_transaction(transaction_id):
+    
     # trans = F.load_transaction()
     current_user = S.get_current_user()
 
@@ -55,24 +56,6 @@ def delete_transaction(transaction_id):
 
     with open(data, "w", encoding="utf-8") as u:
         json.dump(users, u, indent=4)
-
-
-def edit_transaction(transaction_id):
-    print("NOTE: TRANSACTION ID CANNOT BE EDITED OR CHANGED .")
-    print("the things you can edit now are amount category and type of transaction ")
-    print("your transaction data is")
-    current_user=S.get_current_user()
-    data=P.Path("C:/coding/finance_project_/mypkg/data/transactions.json")
-    with open(data,"r", encoding="utf-8") as f:
-        users=json.load(f)
-    print(users[current_user])
-
-    print("=================================")
-    print("things you can change.")
-    change=["amount" , "category","type_"]
-    for i , a in enumerate(change):
-        print(i,"     ", a)
-    print("choose which one to change")
 
 
 def show_summary(user_id):
@@ -95,4 +78,36 @@ def show_summary(user_id):
         )
 
     print()
+
+def ADD_TRANSACTION_FLOW():
+    amount=int(input("enter the amount"))
+    category=input("enter your category")
+    date = time.strftime("%Y-%m-%d")
+    type_=input("enter the type of the transaction")
+    add_transactions(amount=amount,category=category,type_=type_,date=date)
+
+def Delete_transaction_flow():
+    transaction_id=int(input("enter your transaction id"))
+    print('copy the transaction id you want to delete form the above summary')
+    delete_transaction(transaction_id=transaction_id)
+
+def Menu():
+    while True:
+        print("1.ADD TRANSACTION")
+        print('2. VIEW TRANSACTION')
+        print('3.DELETE TRANSACTION')
+        print("4.EXIT")
+
+        choice=int(input("enter your choice:-"))
+        if choice==1:
+            ADD_TRANSACTION_FLOW()
+        elif choice==2:
+            get_transaction_for_user()
+
+        elif choice==3:
+            Delete_transaction_flow()
+        elif choice==4:
+            break
+        else:
+            print("invalid input")
 
