@@ -76,17 +76,23 @@ def edit_transaction(transaction_id):
 
 
 def show_summary(user_id):
-    transactions=F.load_transaction()
-    users=F.load_users()
+    transactions = F.load_transaction()
+    users = F.load_users()
+    trans = transactions[user_id]
     print("TRANSACTION SUMMARY.")
-    name=users[user_id]["name"]
-    email=users[user_id]["email"]
+    name = users[user_id]["name"]
+    email = users[user_id]["email"]
     print(f"NAME: {name}")
     print(f"EMAIL: {email}")
-    for user_id, entries in transactions.items():
-        print(f"User: {user_id}")
-        for entry_id, entry in entries.items():
-            print(f"  ID: {entry_id} | amount: {entry['amount']} | category: {entry['category']} | date: {entry['date']} | type: {entry['type']}")
+    for transaction_id, entry in trans.items():
+        print("-" * 60)
+        print(f"TRANSACTION ID: {transaction_id}")
+        print(
+            f"Amount: {entry['amount']} | "
+            f"Category: {entry['category']} | "
+            f"Date: {entry['date']} | "
+            f"Type: {entry['type']}"
+        )
 
-    
+    print()
 

@@ -10,11 +10,12 @@ import time
 import mypkg.services.sessions as S
 class Dash():
 
-    def board():
+    def Menu():
         users_id=S.get_current_user()
         users=f.load_users()
-        print("user summary")
+        # print("user summary")
         summary=T.show_summary(user_id=users_id)
-        
+        T.Menu()
+
     
        
