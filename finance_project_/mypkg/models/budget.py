@@ -40,8 +40,18 @@ class Budgets:
             print(f"your budget history is {dashboard}")
         else:
             print("currently you don't have and budget created yet ")
-    def ShowSummary():
-        pass
+    def ShowSummary(self):
+        print("==============================================================")
+        bud=F.LoadBudget()
+        current_user=S.get_current_user()
+        user_bud=bud[current_user]
+        for category ,entry in user_bud.items():
+            print(f"CATEGORY :{category}")
+            print(
+                f"BUDGET:{entry["budget"]}|"
+                f"LIMIT:{entry["limit"]}"
+            )
+        print("==============================================================")
     def SetBudget_Flow():
         category=input("enter your category:-")
         amount=V.ValidateAmount()
