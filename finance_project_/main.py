@@ -77,14 +77,16 @@ class interface():
             print("==========================================")
             print("the next section is budget ")
             print("create a new budget here")
-            cat=input("enter your category of the budget for example ")
+            
             dummy=["FOOD" , "GROCERIES","RENT" ,"RANDOM_EXPENSE","TRIP","TRAVEL","PARTY"]
             for i , x in enumerate(dummy):
                 print(i,"    ", x)
+            cat=input("enter your category of the budget for example ")
             amo=int(input("enter the amount for this category"))
             # l=int(input("enter the limit for this category"))
             limit=V.ValidateLimit()
-            new_bud=B.Budgets.SetBudget(category=cat,amount=amo,limit=limit)
+            new_bud=B.Budgets()
+            new_bud.SetBudget(category=cat,amount=amo,limit=limit)
 
 
 
