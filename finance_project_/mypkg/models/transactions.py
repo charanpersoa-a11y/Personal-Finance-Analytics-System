@@ -75,5 +75,18 @@ def edit_transaction(transaction_id):
     print("choose which one to change")
 
 
+def show_summary(user_id):
+    transactions=F.load_transaction()
+    users=F.load_users()
+    print("TRANSACTION SUMMARY.")
+    name=users[user_id]["name"]
+    email=users[user_id]["email"]
+    print(f"NAME: {name}")
+    print(f"EMAIL: {email}")
+    for user_id, entries in transactions.items():
+        print(f"User: {user_id}")
+        for entry_id, entry in entries.items():
+            print(f"  ID: {entry_id} | amount: {entry['amount']} | category: {entry['category']} | date: {entry['date']} | type: {entry['type']}")
 
+    
 
