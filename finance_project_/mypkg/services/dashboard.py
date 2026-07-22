@@ -15,7 +15,11 @@ class Dash():
         users=f.load_users()
         # print("user summary")
         summary=T.show_summary(user_id=users_id)
+        # transaction menu will be showed here
         T.Menu()
+        # the budget menu will be showed here
+        b=B.Budgets()
+        b.Menu()
 
     
        
