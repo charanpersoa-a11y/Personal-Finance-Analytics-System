@@ -19,7 +19,7 @@ def add_transactions(amount,category,date,type_):
         "amount": amount,
         "category": category,
         "date": date,
-        "type": type_
+        "type_":type_
     }
     # new_transaction=T.Transaction(amount=amount,t_type=None,date=None,transaction_id=transaction_id)
     F.save_transaction(transaction)
@@ -74,17 +74,32 @@ def show_summary(user_id):
             f"Amount: {entry['amount']} | "
             f"Category: {entry['category']} | "
             f"Date: {entry['date']} | "
-            f"Type: {entry['type']}"
+            f"type_:{entry['type_']} |"
         )
 
     print()
 
 def ADD_TRANSACTION_FLOW():
     amount=int(input("enter the amount"))
-    category=input("enter your category")
+    cat=["FOOD","GROCERY",'RENT','OTHER EXPENSE']
+    for i , a in enumerate(cat):
+        print(i,"    ",a )
+    category=input("select  your category")
     date = time.strftime("%Y-%m-%d")
-    type_=input("enter the type of the transaction")
-    add_transactions(amount=amount,category=category,type_=type_,date=date)
+    ty=["INCOME","EXPENSE"]
+    print("NOTE type should be of only types they are ")
+    for i , t in enumerate(ty):
+        print(i,"   ", t)
+    print("please select one of these and move")
+    type_=None
+    choice=int(input("enter your choice:-"))
+    if choice==1:
+        type_="income"
+    elif choice==2:
+        type_="expense"
+    else:
+        print("invalid input")
+    add_transactions(amount=amount,category=category,date=date,type_=type_)
 
 def Delete_transaction_flow():
     transaction_id=int(input("enter your transaction id"))
