@@ -1,0 +1,16 @@
+{
+    "3564071289": {
+        "01234": {
+            "amount": 500,
+            "category": "FOOD",
+            "date": "2026-07-23",
+            "type_": "expense"
+        },
+        "13420": {
+            "amount": 499,
+            "category": "GROCERY",
+            "date": "2026-07-23",
+            "type_": "expense"
+        }
+    }
+}

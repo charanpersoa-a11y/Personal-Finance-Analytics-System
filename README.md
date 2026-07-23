@@ -34,3 +34,13 @@ new addition is validation it basically checks the user input with certain condi
 and other thing is password which is the length of the password must be greater than 6 characters .
 and the limit of the budget is also in the validation it basically checks the limit should be greater than 0
 and i am thinking of changing of main cause it looks overloaded and i want it to be clean and clear 
+so the main page is done and it looks cleaner than before 
+also the budget logic is completed now moving towards analytics
+Business Logic Layer
+│
+├── authentication.py
+├── transaction_service.py
+├── budget_service.py
+└── analytics.py
+
+out of these only one layer is yet to be done
