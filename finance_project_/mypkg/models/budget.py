@@ -2,9 +2,11 @@
 import mypkg.services.file_manager as F
 import mypkg.services.sessions as S
 import mypkg.utlis.validation as V
+import time as T
 class Budgets:
     def SetBudget(category,amount,limit):
-        NewBudget=F.AddBudget(category=category,budget=amount,limit=limit)
+        start_time=T.strftime("%Y-%m-%d")
+        NewBudget=F.AddBudget(category=category,budget=amount,limit=limit,start_time=start_time)
         # print(f" your budget saved in our data and here it is {NewBudget}")
 
     def GetBudget(category):
@@ -49,7 +51,8 @@ class Budgets:
             print(f"CATEGORY :{category}")
             print(
                 f"BUDGET:{entry["budget"]}|"
-                f"LIMIT:{entry["limit"]}"
+                f"LIMIT:{entry["limit"]} | "
+                f"start_time:{entry["start_time"]}"
             )
         print("==============================================================")
     def SetBudget_Flow():
