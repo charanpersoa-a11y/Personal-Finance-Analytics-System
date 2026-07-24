@@ -13,20 +13,21 @@ import mypkg.services.sessions as S
 class Dash():
 
     def Menu():
-        # users_id=S.get_current_user()
+        users_id=S.get_current_user()
         # users=f.load_users()
         # print("user summary")
         # this is the summary of the transaction 
-        # summary=T.show_summary(user_id=users_id)
-        # the budget summary will be shown here
-        # a=B.Budgets()
-        # a.ShowSummary()
+        summary=T.show_summary(user_id=users_id)
     
         # transaction menu will be showed here
-        # T.Menu()
+        T.Menu()
+        
+        # the budget summary will be shown here
+        a=B.Budgets()
+        a.ShowSummary()
         # the budget menu will be showed here
-        # b=B.Budgets()
-        # b.Menu()
+        b=B.Budgets()
+        b.Menu()
         # analysis menu
         A.AnalysisMenu()
         t=H.DateTime_Calculations()
