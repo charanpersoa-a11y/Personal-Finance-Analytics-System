@@ -9,6 +9,7 @@ import mypkg.models.budget as B
 import time
 import mypkg.services.analytics as A
 import mypkg.services.sessions as S
+
 class Dash():
 
     def Menu():
@@ -28,6 +29,8 @@ class Dash():
         # b.Menu()
         # analysis menu
         A.AnalysisMenu()
+        t=H.DateTime_Calculations()
+        t.Get_period()
 
 
     

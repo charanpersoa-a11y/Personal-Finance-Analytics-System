@@ -2,15 +2,20 @@
     "3564071289": {
         "FOOD": {
             "limit": null,
-            "budget": 6000
+            "budget": 6000,
+            "start_time":"2026-07-24"
         },
         "RENT": {
             "limit": 2000,
-            "budget": 1500
+            "budget": 1500,
+            "start_time":"2026-07-24"
         },
         "GROCERY": {
             "limit": 4500,
-            "budget": 4000
+            "budget": 4000,
+            "start_time":"2026-07-24"
+            
+
         }
     }
 }
