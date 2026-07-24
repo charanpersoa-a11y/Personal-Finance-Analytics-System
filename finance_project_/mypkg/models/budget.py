@@ -6,6 +6,7 @@ from datetime import date , timedelta
 class Budgets:
     def SetBudget(category,amount,limit):
         start_time=date.today()
+        start_time=date.isoformat(start_time)
         NewBudget=F.AddBudget(category=category,budget=amount,limit=limit,start_time=start_time)
         # print(f" your budget saved in our data and here it is {NewBudget}")
 

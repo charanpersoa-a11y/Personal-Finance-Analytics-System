@@ -15,6 +15,7 @@ import mypkg.services.file_manager as F
 import mypkg.services.sessions as S
 class DateTime_Calculations():
     def Get_period(self):
+        print("NOTE")
         current_user=S.get_current_user()
         budget=F.LoadBudget()
         user_budget=budget[current_user]

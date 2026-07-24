@@ -90,6 +90,7 @@ def ADD_TRANSACTION_FLOW():
         print(i,"    ",a )
     category=input("select  your category :-").strip().upper()
     date_ = date.today()
+    date_=date.isoformat(date_)
     ty=["INCOME","EXPENSE"]
     print("NOTE type should be of only types they are ")
     for i , t in enumerate(ty):

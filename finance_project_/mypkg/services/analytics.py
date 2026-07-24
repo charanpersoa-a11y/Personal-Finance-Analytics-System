@@ -14,6 +14,8 @@ import mypkg.services.file_manager as F
 
 # this will be calculated over a category
 def AnalysisMenu():
+    print("==========================================")
+    print("COMPLETE ANALYSIS OF YOUR BUDGET AND TRANSACTION")
     category=input("enter your category or choose one :-").strip().upper()
     TotalIncome=Get_Total_categoryTransactionsI(category=category)
     TotalExpense=Get_Total_CAtegory_transactionE(category=category)
@@ -23,6 +25,7 @@ def AnalysisMenu():
     print(f"your total income in this time period is {TotalIncome}")
     print((f"your total expense in this time period is {TotalExpense}"))
     print(f"your remaining budget for {category} is {RemainingBudget}")
+    print("==========================================")
 
 
     # data 2 is budget
