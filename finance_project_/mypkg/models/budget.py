@@ -2,10 +2,10 @@
 import mypkg.services.file_manager as F
 import mypkg.services.sessions as S
 import mypkg.utlis.validation as V
-import time as T
+from datetime import date , timedelta
 class Budgets:
     def SetBudget(category,amount,limit):
-        start_time=T.strftime("%Y-%m-%d")
+        start_time=date.today()
         NewBudget=F.AddBudget(category=category,budget=amount,limit=limit,start_time=start_time)
         # print(f" your budget saved in our data and here it is {NewBudget}")
 

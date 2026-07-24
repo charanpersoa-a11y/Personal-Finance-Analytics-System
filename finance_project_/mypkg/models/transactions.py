@@ -6,9 +6,10 @@ import mypkg.models.transaction as T
 import pathlib as P
 import json
 import time
+from datetime import date
 
 # i am changing or swapping category with transaction id
-def add_transactions(amount,category,date,type_):
+def add_transactions(amount,category,date_,type_):
     current_user=S.get_current_user()
     digits = rd.sample(range(5), 5)
     transaction_id = "".join(map(str, digits))
@@ -18,7 +19,7 @@ def add_transactions(amount,category,date,type_):
     transaction[current_user][transaction_id] = {
         "amount": amount,
         "category": category,
-        "date": date,
+        "date_": date_,
         "type_":type_
     }
     # new_transaction=T.Transaction(amount=amount,t_type=None,date=None,transaction_id=transaction_id)
@@ -74,7 +75,7 @@ def show_summary(user_id):
             print(
                 f"Amount: {entry['amount']} | "
                 f"Category: {entry['category']} | "
-                f"Date: {entry['date']} | "
+                f"Date_: {entry['date_']} | "
                 f"type_:{entry['type_']} |"
             )
 
@@ -88,7 +89,7 @@ def ADD_TRANSACTION_FLOW():
     for i , a in enumerate(cat):
         print(i,"    ",a )
     category=input("select  your category :-").strip().upper()
-    date = time.strftime("%Y-%m-%d")
+    date_ = date.today()
     ty=["INCOME","EXPENSE"]
     print("NOTE type should be of only types they are ")
     for i , t in enumerate(ty):
@@ -102,7 +103,7 @@ def ADD_TRANSACTION_FLOW():
         type_="EXPENSE"
     else:
         print("invalid input")
-    add_transactions(amount=amount,category=category,date=date,type_=type_)
+    add_transactions(amount=amount,category=category,date_=date_,type_=type_)
 
 def Delete_transaction_flow():
     transaction_id=int(input("enter your transaction id"))
