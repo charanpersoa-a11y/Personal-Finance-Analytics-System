@@ -21,6 +21,8 @@ def AnalysisMenu():
     print(f"your total budget for this category {category} is {TotalBudget}")
     print(f"your total income in this time period is {TotalIncome}")
     print((f"your total expense in this time period is {TotalExpense}"))
+    RemainingBudget=TotalBudget-TotalExpense
+    print(f"your remaining budget for {category} is {RemainingBudget}")
     
 
 
@@ -36,14 +38,12 @@ def Get_Total_categoryTransactionsI(category):
         # data1 is transactions
     data1=TData1[current_user]
     total=0
-    for transaction_id  in data1:
-        for entry in data1[transaction_id].items() and entry.get("type_")=="income":
-            if entry.get("category","")==category:
-                amount= entry.get("amount",0)
-                total+=amount
-                return total
-            else:
-                return None
+    for transaction_id ,entry in data1.items():
+        if entry.get("type_")=="income" and entry.get("category","")==category:
+            amount= entry.get("amount",0)
+            total+=amount
+
+    return total if total>0 else None
 
 # total of expense in transaction will be here
 def Get_Total_CAtegory_transactionE(category):
@@ -53,14 +53,12 @@ def Get_Total_CAtegory_transactionE(category):
         # data1 is transactions
     data1=TData1[current_user]
     total=0
-    for transaction_id  in data1:
-        for entry in data1[transaction_id].items() and entry.get("type_")=="expense":
-            if entry.get("category","")==category:
-                amount= entry.get("amount",0)
-                total+=amount
-                return total
-            else:
-                return None
+    for transaction_id, entry in data1.items():
+        if entry.get("type_") == "expense" and entry.get("category", "") == category:
+            total += entry.get("amount", 0)
+
+    return total if total > 0 else None
+
 
 
 
