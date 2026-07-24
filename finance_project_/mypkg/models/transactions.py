@@ -7,7 +7,7 @@ import pathlib as P
 import json
 import time
 
-
+# i am changing or swapping category with transaction id
 def add_transactions(amount,category,date,type_):
     current_user=S.get_current_user()
     digits = rd.sample(range(5), 5)
@@ -67,24 +67,27 @@ def show_summary(user_id):
     email = users[user_id]["email"]
     print(f"NAME: {name}")
     print(f"EMAIL: {email}")
-    for transaction_id, entry in trans.items():
-        print("-" * 60)
-        print(f"TRANSACTION ID: {transaction_id}")
-        print(
-            f"Amount: {entry['amount']} | "
-            f"Category: {entry['category']} | "
-            f"Date: {entry['date']} | "
-            f"type_:{entry['type_']} |"
-        )
+    if user_id in transactions:
+        for transaction_id, entry in trans.items():
+            print("-" * 60)
+            print(f"TRANSACTION ID: {transaction_id}")
+            print(
+                f"Amount: {entry['amount']} | "
+                f"Category: {entry['category']} | "
+                f"Date: {entry['date']} | "
+                f"type_:{entry['type_']} |"
+            )
 
-    print()
+        print()
+    else:
+        print("no transactions yet")
 
 def ADD_TRANSACTION_FLOW():
-    amount=int(input("enter the amount"))
+    amount=int(input("enter the amount:-"))
     cat=["FOOD","GROCERY",'RENT','OTHER EXPENSE']
     for i , a in enumerate(cat):
         print(i,"    ",a )
-    category=input("select  your category")
+    category=input("select  your category :-").strip().upper()
     date = time.strftime("%Y-%m-%d")
     ty=["INCOME","EXPENSE"]
     print("NOTE type should be of only types they are ")
@@ -94,9 +97,9 @@ def ADD_TRANSACTION_FLOW():
     type_=None
     choice=int(input("enter your choice:-"))
     if choice==1:
-        type_="income"
+        type_="INCOME"
     elif choice==2:
-        type_="expense"
+        type_="EXPENSE"
     else:
         print("invalid input")
     add_transactions(amount=amount,category=category,date=date,type_=type_)
@@ -105,6 +108,10 @@ def Delete_transaction_flow():
     transaction_id=int(input("enter your transaction id"))
     print('copy the transaction id you want to delete form the above summary')
     delete_transaction(transaction_id=transaction_id)
+
+
+
+
 
 def Menu():
     while True:

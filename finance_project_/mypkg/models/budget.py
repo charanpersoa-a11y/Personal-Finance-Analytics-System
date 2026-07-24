@@ -53,7 +53,7 @@ class Budgets:
             )
         print("==============================================================")
     def SetBudget_Flow():
-        category=input("enter your category:-")
+        category=input("enter your category:-").strip().upper()
         amount=V.ValidateAmount()
         limit=V.ValidateLimit()
         print("your budget is being processed ")
