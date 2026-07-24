@@ -3,25 +3,25 @@
         "01234": {
             "amount": 500,
             "category": "FOOD",
-            "date": "2026-07-23",
+            "date_": "2026-07-23",
             "type_": "expense"
         },
         "13420": {
             "amount": 499,
             "category": "GROCERY",
-            "date": "2026-07-23",
+            "date_": "2026-07-23",
             "type_": "expense"
         },
         "40213": {
             "amount": 999,
             "category": "GROCERY",
-            "date": "2026-07-23",
+            "date_": "2026-07-23",
             "type_": "expense"
         },
         "31240": {
             "amount": 300,
             "category": "FOOD",
-            "date": "2026-07-24",
+            "date_": "2026-07-24",
             "type_": "expense"
         }
     }

@@ -42,10 +42,11 @@ def save_transaction(transact):
     with open(user_path,"w",encoding="utf-8") as f:
         json.dump(transact,f,indent=4)
 
-def add_transaction(user_id,amount,type,transaction_id):
+def add_transaction(user_id,amount,type,transaction_id,date_):
     transaction=load_transaction()
     transaction[user_id]={"transaction_id":transaction_id,
                           "amount":amount,
+                          "date_":date_,
                           "type":type
                           }
     save_transaction(transaction)
