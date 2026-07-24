@@ -26,5 +26,5 @@ class DateTime_Calculations():
             start_date=DT.date.fromisoformat(start_date)
             period=31
             end_date=start_date + DT.timedelta(period)
-            print(category , end_date)
+            print(f"the last date for {category} is {end_date}")
 
