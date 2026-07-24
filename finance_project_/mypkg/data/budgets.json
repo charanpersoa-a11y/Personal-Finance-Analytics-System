@@ -7,6 +7,10 @@
         "RENT": {
             "limit": 2000,
             "budget": 1500
+        },
+        "GROCERY": {
+            "limit": 4500,
+            "budget": 4000
         }
     }
 }

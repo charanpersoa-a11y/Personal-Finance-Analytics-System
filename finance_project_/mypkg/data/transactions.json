@@ -17,6 +17,12 @@
             "category": "grocery",
             "date": "2026-07-23",
             "type_": "expense"
+        },
+        "31240": {
+            "amount": 300,
+            "category": "FOOD",
+            "date": "2026-07-24",
+            "type_": "expense"
         }
     }
 }
