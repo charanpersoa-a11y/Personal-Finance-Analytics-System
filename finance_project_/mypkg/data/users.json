@@ -23,12 +23,6 @@
         "email": "dhanush@gmail.com",
         "password": "dhanush123"
     },
-    "3164270895": {
-        "name": "amrutha",
-        "age": 18,
-        "email": "amruthaammu@gmail.com",
-        "password": "amruthaammu"
-    },
     "7283459061": {
         "name": "preetham",
         "age": 19,
@@ -40,17 +34,5 @@
         "age": 19,
         "email": "sangamesh420",
         "password": "sangamesh@123"
-    },
-    "9402573861": {
-        "name": "dhanya",
-        "age": 19,
-        "email": "dhanya@gmail.com",
-        "password": "dhanyadhanys"
-    },
-    "7416082935": {
-        "name": "chandrakala",
-        "age": 19,
-        "email": "chandrakal@gmail.com",
-        "password": "chandrakala"
     }
 }
