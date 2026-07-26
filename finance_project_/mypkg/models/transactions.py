@@ -7,6 +7,7 @@ import pathlib as P
 import json
 import time
 from datetime import date
+import mypkg.services.dashboard as D
 
 # i am changing or swapping category with transaction id
 def add_transactions(amount,category,date_,type_):
@@ -62,7 +63,10 @@ def delete_transaction(transaction_id):
 def show_summary(user_id):
     transactions = F.load_transaction()
     users = F.load_users()
-    trans = transactions[user_id]
+    if user_id in transactions:
+        trans = transactions[user_id]
+    else:
+        print("new user doesn't have any transactions ")
     print("TRANSACTION SUMMARY.")
     name = users[user_id]["name"]
     email = users[user_id]["email"]
@@ -120,7 +124,7 @@ def Menu():
         print("1.ADD TRANSACTION")
         print('2. VIEW TRANSACTION')
         print('3.DELETE TRANSACTION')
-        print("4.EXIT")
+        print("4.EXIT ")
 
         choice=int(input("enter your choice:-"))
         if choice==1:

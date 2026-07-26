@@ -47,14 +47,17 @@ class Budgets:
         print("==============================================================")
         bud=F.LoadBudget()
         current_user=S.get_current_user()
-        user_bud=bud[current_user]
-        for category ,entry in user_bud.items():
-            print(f"CATEGORY :{category}")
-            print(
-                f"BUDGET:{entry["budget"]}|"
-                f"LIMIT:{entry["limit"]} | "
-                f"start_time:{entry["start_time"]}"
-            )
+        if current_user in bud:
+            user_bud=bud[current_user]
+            for category ,entry in user_bud.items():
+                print(f"CATEGORY :{category}")
+                print(
+                    f"BUDGET:{entry["budget"]}|"
+                    f"LIMIT:{entry["limit"]} | "
+                    f"start_time:{entry["start_time"]}"
+                )
+        else:
+            print("new user doesn't have any budget's yet")
         print("==============================================================")
     def SetBudget_Flow():
         category=input("enter your category:-").strip().upper()
