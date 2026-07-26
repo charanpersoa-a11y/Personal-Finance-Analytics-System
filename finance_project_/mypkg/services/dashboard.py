@@ -9,6 +9,7 @@ import mypkg.models.budget as B
 import time
 import mypkg.services.analytics as A
 import mypkg.services.sessions as S
+import mypkg.graphs._I_E_graph as I
 
 class Dash():
 
@@ -17,21 +18,24 @@ class Dash():
         # users=f.load_users()
         # print("user summary")
         # this is the summary of the transaction 
-        summary=T.show_summary(user_id=users_id)
+        # summary=T.show_summary(user_id=users_id)
     
         # transaction menu will be showed here
-        T.Menu()
+        # T.Menu()
         
         # the budget summary will be shown here
-        a=B.Budgets()
-        a.ShowSummary()
+        # a=B.Budgets()
+        # a.ShowSummary()
         # the budget menu will be showed here
-        b=B.Budgets()
-        b.Menu()
+        # b=B.Budgets()
+        # b.Menu()
         # analysis menu
-        A.AnalysisMenu()
-        t=H.DateTime_Calculations()
-        t.Get_period()
+        # A.AnalysisMenu()
+        # t=H.DateTime_Calculations()
+        # t.Get_period()
+        # graph test
+        I.Chart()
+
 
 
     
