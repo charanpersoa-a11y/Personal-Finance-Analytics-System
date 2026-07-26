@@ -39,7 +39,7 @@ def Get_Total_categoryTransactionsI():
     data1=TData1[current_user]
     total=0
     for transaction_id ,entry in data1.items():
-        if entry.get("type_")=="income":
+        if entry.get("type_")=="INCOME":
             amount= entry.get("amount",0)
             total+=amount
 
@@ -54,7 +54,7 @@ def Get_Total_CAtegory_transactionE():
     data1=TData1[current_user]
     total=0
     for transaction_id, entry in data1.items():
-        if entry.get("type_") == "expense" :
+        if entry.get("type_") == "EXPENSE" :
             total += entry.get("amount", 0)
 
     return total if total > 0 else 0
