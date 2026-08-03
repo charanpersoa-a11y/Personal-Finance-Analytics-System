@@ -40,5 +40,17 @@
         "age": 19,
         "email": "amruthaammu@gmial.com",
         "password": "amruthaammu"
+    },
+    "3947021658": {
+        "name": "santhosh",
+        "age": 19,
+        "email": "santhosh@gmail.com",
+        "password": "santhosh"
+    },
+    "4857123690": {
+        "name": "amritha",
+        "age": 19,
+        "email": "amritha@gmail.com",
+        "password": "amritha"
     }
 }

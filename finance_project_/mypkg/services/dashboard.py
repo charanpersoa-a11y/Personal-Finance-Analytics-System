@@ -34,7 +34,7 @@ class Dash():
         t=H.DateTime_Calculations()
         t.Get_period()
         # graph test
-        # I.Chart()
+        I.Chart()
 
 
 

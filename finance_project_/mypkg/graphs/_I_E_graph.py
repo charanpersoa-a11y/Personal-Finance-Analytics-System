@@ -10,8 +10,8 @@ def Chart():
     # chart for a individual category 
     # category =input("enter your category:-")
     current_user=S.get_current_user()
-    income=A.Get_Total_categoryTransactionsI("FOOD")
-    expense=A.Get_Total_CAtegory_transactionE("FOOD")
+    income=A.Get_Total_categoryTransactionsI()
+    expense=A.Get_Total_CAtegory_transactionE()
     budget_file=F.LoadBudget()
     budget_user=budget_file[current_user]
     list_category=[category for category in budget_user]
@@ -22,6 +22,6 @@ def Chart():
 
     plt.bar(list_category,list_amount,color=color)
     Label=["INCOME" , 'EXPENSE']
-    plt.pie(income,expense,labels=Label)
+    # plt.pie(income,expense,labels=Label)
 
     plt.show()
