@@ -18,10 +18,10 @@ def AnalysisMenu():
     print("COMPLETE ANALYSIS OF YOUR BUDGET AND TRANSACTION")
     TotalIncome=Get_Total_categoryTransactionsI()
     TotalExpense=Get_Total_CAtegory_transactionE()
-    category=input("enter your category or choose one :-").strip().upper()
-    TotalBudget=Get_Total_Category_Budget(category=category)
+    # category=input("enter your category or choose one :-").strip().upper()
+    # TotalBudget=Get_Total_Category_Budget(category=category)
     RemainingBudget=TotalIncome-TotalExpense
-    print(f"your total budget for this category {category} is {TotalBudget}")
+    # print(f"your total budget for this category {category} is {TotalBudget}")
     print(f"your total income in this time period is {TotalIncome}")
     print((f"your total expense in this time period is {TotalExpense}"))
     print(f"your remaining budget for  is {RemainingBudget}")
