@@ -7,7 +7,7 @@ import mypkg.services.sessions as S
 
 
 def Chart():
-    # chart for a individual category 
+    # chart for a individual category
     # category =input("enter your category:-")
     current_user=S.get_current_user()
     income=A.Get_Total_categoryTransactionsI()

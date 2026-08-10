@@ -73,4 +73,11 @@ def Get_Total_Category_Budget(category):
             return total
 
 # def Get_TotalIncome():
+def expense_pie_data():
+    current_user=S.get_current_user()
+    TData1=F.load_transaction()
     
+            # data1 is transactions
+    data=TData1[current_user]
+    # for t_id in data:
+    #     if 
