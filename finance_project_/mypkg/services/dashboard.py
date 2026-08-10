@@ -10,6 +10,7 @@ import time
 import mypkg.services.analytics as A
 import mypkg.services.sessions as S
 import mypkg.graphs._I_E_graph as I
+import mypkg.graphs.expense_distribution as E
 
 class Dash():
 
@@ -19,10 +20,10 @@ class Dash():
         # print("user summary")
         # this is the summary of the transaction 
         summary=T.show_summary(user_id=users_id)
-    
+
         # transaction menu will be showed here
         T.Menu()
-        
+
         # the budget summary will be shown here
         a=B.Budgets()
         a.ShowSummary()
@@ -34,9 +35,4 @@ class Dash():
         t=H.DateTime_Calculations()
         t.Get_period()
         # graph test
-        I.Chart()
-
-
-
-    
-       
+        I.ShowCharts()

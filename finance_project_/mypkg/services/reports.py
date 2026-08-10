@@ -12,4 +12,4 @@
 
 # Most Frequent Category:
 # Food
-# structure or the idea of the reports 
+# structure or the idea of the reports

@@ -76,8 +76,16 @@ def Get_Total_Category_Budget(category):
 def expense_pie_data():
     current_user=S.get_current_user()
     TData1=F.load_transaction()
+    category=[]
+    amount=[]
     
             # data1 is transactions
     data=TData1[current_user]
-    # for t_id in data:
-    #     if 
+    for transaction_id, entry in data.items():
+        if entry.get("type_") == "EXPENSE" :
+            category.append(entry.get("category"))
+            amount.append(entry.get("amount"))
+        else:
+            pass
+    return category , amount
+
