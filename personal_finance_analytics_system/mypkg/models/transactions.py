@@ -47,7 +47,7 @@ def delete_transaction(transaction_id):
     # trans = F.load_transaction()
     current_user = S.get_current_user()
 
-    data = P.Path("C:/coding/finance_project_/mypkg/data/transactions.json")
+    data = P.Path("C:/coding/personal_finance_analytics_system/mypkg/data/transactions.json")
 
     users=F.load_transaction()
 
