@@ -64,5 +64,11 @@
         "age": 19,
         "email": "amrithaPshenoy@gmail.com",
         "password": "amritha"
+    },
+    "6403127958": {
+        "name": "maximus",
+        "age": 34,
+        "email": "maximus@gmail.com",
+        "password": "maximusdecimusmeredius"
     }
 }
