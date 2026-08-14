@@ -113,3 +113,5 @@ Python 3 · `json` · `pathlib` · `numpy` · `pandas` · `matplotlib`
 ## License
 
 Created for learning and educational purposes.
+
+## project is not complete yet
