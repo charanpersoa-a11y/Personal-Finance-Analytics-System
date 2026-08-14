@@ -29,7 +29,7 @@ def Chart():
 import matplotlib.pyplot as plt
 # expense distribution graph basically pie chart 
 def Pie_chart():
-    c=['b','r','g','c','m','y','k','w']
+    c=['b','r','g','c','m','y','k']
     
     category,amount =A.expense_pie_data()
     color=[R.choice(c) for _ in range(len(category))]

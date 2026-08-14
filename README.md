@@ -1,46 +1,115 @@
-start of the new project
-first initial thing which is user interface is done and more work is still there like data storing and getting them in right place but the initial version is done where we can talk or interact with it
-and it is completely cli based project i am not sure i will go for further in this project
-the initial version contains and input and respond system where you will have 3 options
-1.register if you are a new user
-2.login if you have your id and password and for now i don't have password authentication system yet
-3.exit where you want to end the program
+# Personal Finance Analytics System
 
-todays update is that i worked on registration and login where i saved the data of the new user in a dictionary and later i added that data to a json file
-13\07\26
-i'm having some issues with organizing files in this project and today i'll solve this problem 
-main thing to be noticed is which file contains what that's the main question here and i did some mistakes too till now and time to correct
-todays tasks are as follows
-1.organize the files according and comment down the things which will be there
-2.update on git and github
-till now a lot of changes happened in the code base and it took  a lot of time for this
-major changes happened
-auth register and login and exit these functions moved to auth and it handles the registration process 
-file_manages handles the loading saving information
-user represents a user and create a new user whenever function is called
-main handles the input operations
-authentication almost done with some minor changes remaining like i want connect things to other files so work is still incomplete
-problem is how i connect them like i want to show the dashboard of the user who logged in and for that i want confirmation from the
-login or from the authentication
-the first solution i found is to write a series of code or block of code in dash file where i can easily access the confirmation from the login but the i can't because the login block should be in auth and it will be there
-so other classic method is get the user id of the person logged in from the login func and then search the user in the data base finally show the dashboard of the user if he want to
-till now the register and login things are working accordingly and has no errors and i am gonna implement try error blocks there for 
-and new case scenarios like i want to add exception handling here..
-as of today i didn't get time to code
-i have done some minor changes in the system like when a new user register for the first time after the completion of the registration
-process he or she will be directed to login page without any inputs or anything .
-here after the completion of transaction but it's not complete without budget thing and other but the basic structure of the transaction is  complete.
-new addition is validation it basically checks the user input with certain conditions like it should be a non zero number and the user must be older than a certain age .
-and other thing is password which is the length of the password must be greater than 6 characters .
-and the limit of the budget is also in the validation it basically checks the limit should be greater than 0
-and i am thinking of changing of main cause it looks overloaded and i want it to be clean and clear 
-so the main page is done and it looks cleaner than before 
-also the budget logic is completed now moving towards analytics
-Business Logic Layer
-│
-├── authentication.py
-├── transaction_service.py
-├── budget_service.py
-└── analytics.py
+A modular Python application for tracking income and expenses, managing budgets, and analyzing personal spending through data visualization.
 
-out of these only one layer is yet to be done
+Built as a learning project to apply OOP, file handling, exception handling, and data analysis (Pandas/NumPy/Matplotlib) in a real, multi-file application — not a tutorial script.
+
+---
+
+## Features
+
+- **Authentication** — user registration, login, session management (see [Known Limitations](#known-limitations))
+- **Income & Expense tracking** — add, categorize, and view records tied to the logged-in user
+- **Transactions** — JSON-backed CRUD, filterable by user and attributes
+- **Budgets** — set spending limits, track against them, flag overruns
+- **Analytics** — total income/expense/savings, category breakdowns, spending patterns
+- **Visualization** — income vs. expense, monthly trends, category distribution, budget comparison
+- **Reports** — financial summaries prepared for export
+
+---
+
+## Architecture
+
+```text
+Personal-Finance-Analytics-System/
+├── main.py
+├── mypkg/
+│   ├── models/       # User, Income, Expense, Transaction, Budget
+│   ├── services/      # Auth, Session, Dashboard, Transaction/Budget services, Analytics, File I/O
+│   ├── utils/         # Validators, helpers
+│   └── data/          # users.json, transactions.json, budgets.json
+├── exports/
+└── logs/
+```
+
+**Flow:** Register/Login → Session created → Dashboard → Income/Expense/Transactions/Budget → Analytics → Graphs & Reports
+
+Each service owns one responsibility — e.g. `analytics.py` never touches raw JSON directly, it consumes data the file manager loads.
+
+---
+
+## Analytics Pipeline
+
+```text
+JSON Storage → Pandas DataFrame → Cleaning/Filtering → NumPy Calculations → Matplotlib Visualization
+```
+
+---
+
+## Getting Started
+
+```bash
+git clone <https://github.com/charanpersoa-a11y/Personal-Finance-Analytics-System.git>
+cd Personal-Finance-Analytics-System
+pip install -r requirements.txt   # pandas, numpy, matplotlib
+python main.py
+```
+
+## Usage
+
+```text
+====================================
+ Personal Finance Analytics System
+====================================
+1. Register
+2. Login
+3. Exit
+```
+
+After login:
+
+```text
+====================================
+          DASHBOARD
+====================================
+1. Add Income
+2. Add Expense
+3. Transactions
+4. Budget
+5. Analytics
+6. Graphs
+7. Reports
+8. Logout
+```
+
+*(Sample output — expense-vs-budget chart and a category breakdown pie chart — goes here once graphs are finalized.)*
+
+---
+
+## Known Limitations
+
+- **Passwords are stored in plain text**, not hashed. This is a known gap, not an oversight — hashing (bcrypt/argon2) is the top priority before this touches any real financial data.
+- Storage is flat JSON, not a database — fine for single-user local use, not concurrent-safe.
+- No automated tests yet.
+
+---
+
+## Tech Stack
+
+Python 3 · `json` · `pathlib` · `numpy` · `pandas` · `matplotlib`
+
+---
+
+## Roadmap
+
+- [ ] Password hashing
+- [ ] SQLite/PostgreSQL backend
+- [ ] Unit + integration tests
+- [ ] PDF/CSV export
+- [ ] GUI or web front end
+
+---
+
+## License
+
+Created for learning and educational purposes.
