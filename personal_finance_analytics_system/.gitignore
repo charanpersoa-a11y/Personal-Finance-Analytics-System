@@ -7,7 +7,7 @@ venv/
 .venv/
 env/
 
-# Environment variables / secrets
+# Environment variables
 .env
 .env.*
 
@@ -23,7 +23,7 @@ Thumbs.db
 exports/*
 logs/*
 
-# User data - DO NOT upload to GitHub
+# User data
 mypkg/data/users.json
 mypkg/data/transactions.json
 mypkg/data/budgets.json
