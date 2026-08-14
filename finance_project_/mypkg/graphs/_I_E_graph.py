@@ -4,7 +4,7 @@ import pandas as pd
 import mypkg.services.file_manager as F
 import mypkg.services.analytics as A
 import mypkg.services.sessions as S
-
+import random as R
 
 def Chart():
     # chart for a individual category
@@ -29,8 +29,10 @@ def Chart():
 import matplotlib.pyplot as plt
 # expense distribution graph basically pie chart 
 def Pie_chart():
-    color=['b','r','g','c','m','y','k','w']
+    c=['b','r','g','c','m','y','k','w']
+    
     category,amount =A.expense_pie_data()
+    color=[R.choice(c) for _ in range(len(category))]
     plt.pie(amount, labels=category , colors=color, autopct="%1.1f%%")
     plt.title("expense distribution chart ")
     plt.axis("equal")

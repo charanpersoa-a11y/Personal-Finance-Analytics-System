@@ -73,19 +73,31 @@ def Get_Total_Category_Budget(category):
             return total
 
 # def Get_TotalIncome():
+from collections import defaultdict
+
 def expense_pie_data():
-    current_user=S.get_current_user()
-    TData1=F.load_transaction()
-    category=[]
-    amount=[]
-    
-            # data1 is transactions
-    data=TData1[current_user]
-    for transaction_id, entry in data.items():
-        if entry.get("type_") == "EXPENSE" :
-            category.append(entry.get("category"))
-            amount.append(entry.get("amount"))
-        else:
-            pass
-    return category , amount
+    current_user = S.get_current_user()
+    TData1 = F.load_transaction()
+
+    totals = defaultdict(float)
+
+    data = TData1.get(current_user, {})
+
+    for transaction_id, entry in data.items():   # 5
+        if not isinstance(entry, dict):          # 6
+            continue
+
+        if entry.get("type_") == "expense":      # 7
+            cat = entry.get("category")          # 8
+            amt = entry.get("amount")            # 9
+
+            if cat is None or amt is None:       # 10
+                continue
+
+            totals[cat] += float(amt)            # 11
+
+    categories = list(totals.keys())             # 12
+    amounts = list(totals.values())              # 13
+
+    return categories, amounts                   # 14
 
