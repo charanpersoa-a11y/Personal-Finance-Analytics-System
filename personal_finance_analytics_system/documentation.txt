@@ -1,0 +1,36 @@
+change password documentation 
+old version vs new version
+| Area                    | Your version                                                                    | Restructured version                                                                                    |
+| ----------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| Main function           | Change_Password_system() uses two nested checks.                                | ChangePasswordSystem() uses clear early returns.                                                        |
+| Old password input      | Asked twice: once in CheckCurrentPassword() and again in validate_password().   | Asked only once in CheckCurrentPassword().                                                              |
+| Old password validation | Performed in both CheckCurrentPassword() and validate_password().               | Performed only in CheckCurrentPassword().                                                               |
+| New password validation | Mixed with user lookup and old-password verification.                           | Kept separately in ValidateNewPassword().                                                               |
+| Password confirmation   | Done inside validate_password().                                                | Done inside ValidateNewPassword().                                                                      |
+| Updating password       | UpdatePassword(old_password, new_password).                                     | UpdatePassword(new_password) because the old password is not used during the update.                    |
+| Saving data             | Calls F.save_users(data).                                                       | Also calls F.save_users(data).                                                                          |
+| Current user            | Retrieved in multiple functions.                                                | Retrieved only where needed.                                                                            |
+| User data               | Loaded in validate_password() even though it mainly validates the new password. | Loaded only in CheckCurrentPassword() and UpdatePassword().                                             |
+| Password visibility     | Uses input(), so passwords appear on screen while typing.                       | Uses getpass(), which hides password input in supported terminals. documentation.nokia                  |
+| Character checks        | Uses lists such as high_case, lower_case, and number.                           | Uses isupper(), islower(), and isdigit().                                                               |
+| Special characters      | Creates a list every time: list("!@#$%^&*").                                    | Uses one constant: SPECIAL_CHARACTERS.                                                                  |
+| Error handling          | Mostly returns False after nested conditions.                                   | Returns early as soon as a check fails.                                                                 |
+| Success result          | validate_password() updates the password and returns True.                      | Validation returns the new password; the update function performs the update.                           |
+| Function responsibility | Functions do multiple jobs.                                                     | Each function has one main responsibility.                                                              |
+| Readability             | More nested and repetitive.                                                     | Flatter and easier to follow.                                                                           |
+| Security                | Prints passwords in UpdatePassword().                                           | Does not print passwords.                                                                               |
+| Password storage        | Stores the raw password.                                                        | Still stores the raw password in this example; production code should use password hashing. docs.python |
+
+
+this is the comaprison of the old version and updated version
+##flow
+ChangePasswordSystem()
+    ├── CheckCurrentPassword()
+    │       └── Ask for and check old password
+    │
+    ├── ValidateNewPassword()
+    │       ├── Validate new password
+    │       └── Confirm new password
+    │
+    └── UpdatePassword()
+            └── Save the new password
