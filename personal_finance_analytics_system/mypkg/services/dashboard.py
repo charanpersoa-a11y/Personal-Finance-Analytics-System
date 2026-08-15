@@ -11,6 +11,7 @@ import mypkg.services.analytics as A
 import mypkg.services.sessions as S
 import mypkg.graphs._I_E_graph as I
 import mypkg.graphs.expense_distribution as E
+import mypkg.services.account_service as W
 
 class Dash():
 
@@ -20,6 +21,11 @@ class Dash():
         # print("user summary")
         # this is the summary of the transaction 
         summary=T.show_summary(user_id=users_id)
+        print("if you want to change the password type  1 .")
+        user_input=int(input("enter your choice:-"))
+        if user_input==1:
+            W.ChangePasswordSystem()
+
 
         # transaction menu will be showed here
         T.Menu()
