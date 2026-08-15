@@ -26,7 +26,7 @@ class interface():
             name=input("enter your name..")
             email=input("enter your email address...")
             age=V.ValidateAge()
-            password=V.ValidatePassword()
+            password=V.ValidateNewPassword()
             Auth.Register(name=name,age=age,email=email,password=password)
             print("registration complete you can login for more ")
             interface()
