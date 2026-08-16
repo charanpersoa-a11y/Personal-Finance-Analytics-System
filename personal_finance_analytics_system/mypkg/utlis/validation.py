@@ -27,7 +27,7 @@ def ValidateAge():
 
 SPECIAL_CHARACTERS = "!@#$%^&*"
    
-def ValidateNewPassword():
+def ValidatePassword():
     print("Your password must contain:")
     print("- An uppercase letter (A-Z)")
     print("- A lowercase letter (a-z)")

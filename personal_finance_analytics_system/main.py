@@ -6,6 +6,7 @@ import mypkg.models.transactions as T
 import mypkg.utlis.helper as H
 import mypkg.utlis.validation as V
 import mypkg.models.budget as B
+import mypkg.services.account_service as A
 import time
 
 # first interface that user will se when the open
@@ -26,7 +27,7 @@ class interface():
             name=input("enter your name..")
             email=input("enter your email address...")
             age=V.ValidateAge()
-            password=V.ValidateNewPassword()
+            password=V.ValidatePassword()
             Auth.Register(name=name,age=age,email=email,password=password)
             print("registration complete you can login for more ")
             interface()
