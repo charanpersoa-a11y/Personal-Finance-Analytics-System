@@ -1,45 +1,36 @@
+import mypkg.analysis.income_analysis as I
+import mypkg.analysis.expense_analysis as E
+import mypkg.analysis.savings_analysis as S
 import matplotlib.pyplot as plt
-import numpy as np
-import pandas as pd
-import mypkg.services.file_manager as F
-import mypkg.services.analytics as A
-import mypkg.services.sessions as S
-import random as R
 
-def Chart():
-    # chart for a individual category
-    # category =input("enter your category:-")
-    current_user=S.get_current_user()
-    income=A.Get_Total_categoryTransactionsI()
-    expense=A.Get_Total_CAtegory_transactionE()
-    budget_file=F.LoadBudget()
-    budget_user=budget_file[current_user]
-    list_category=[category for category in budget_user]
-    list_amount=[]
-    for category in budget_user:
-        list_amount.append(budget_user[category]["budget"])
-    color=["blue","green","pink","gold"]
 
-    plt.bar(list_category,list_amount,color=color)
-    Label=["INCOME" , 'EXPENSE']
-    # plt.pie(income,expense,labels=Label)
 
+def BarchartIE(ax):
+    data = {"Income": I.TotalIncome(), "Expense": E.TotalExpense(), "Savings": S.Savings()}
+    bars = ax.bar(data.keys(), data.values(), color=["green", "red", "gold"])
+    ax.set_title("Income vs Expense vs Savings")
+    ax.set_ylabel("Amount")
+    ax.grid(axis="y")
+    ax.bar_label(bars)
+
+
+def PieChartExpenseByCategory(ax):
+    data = E.ExpenseByCategory()
+    ax.pie(data.values, labels=data.index, autopct="%1.1f%%")
+    ax.set_title("Expense by Category")
+
+
+# def DonutExpenseByCategory(ax):
+#     data = E.ExpenseByCategory()
+#     ax.pie(data.values, labels=data.index, autopct="%1.1f%%", wedgeprops={"width": 0.4})
+#     ax.set_title("Expense Breakdown")
+
+
+def ChartsDisplay():
+    fig, ax = plt.subplots(2, 1, figsize=(10, 8))
+    BarchartIE(ax[0])
+    PieChartExpenseByCategory(ax[1])
+    # DonutExpenseByCategory(ax=ax[1,0])
+    # ax[0,1], ax[1,0], ax[1,1] — other charts go here later
+    plt.tight_layout()
     plt.show()
-
-import matplotlib.pyplot as plt
-# expense distribution graph basically pie chart 
-def Pie_chart():
-    c=['b','r','g','c','m','y','k']
-    
-    category,amount =A.expense_pie_data()
-    color=[R.choice(c) for _ in range(len(category))]
-    plt.pie(amount, labels=category , colors=color, autopct="%1.1f%%")
-    plt.title("expense distribution chart ")
-    plt.axis("equal")
-    plt.show()
-
-
-def ShowCharts():
-    fig,ax=plt.subplots(2,2,figsize=(10,8))
-    ax[0,0]=Chart()
-    ax[0,1]=Pie_chart()
